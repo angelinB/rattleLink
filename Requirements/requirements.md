@@ -2,17 +2,22 @@
 
 
 
-## General Workflow
+## New Client Onboarding Workflow
 
 1. Client initiates an onboarding request to a member of the consortium.
-2. Client is provided access to the consortium portal.
-3. Client answers all of the required questions and provides the necessary documentation to satisfy the Client Due Diligence, KYC and AML data requirements. 
-
-The data is stored directly on chain or on the IPFS, with a link back to the chain entry. 
+2. Either the client is provided access to the consortium portal or the member firm uses the portal to enter the client data.
+3. Client answers all of the required questions and provides the necessary documentation to satisfy the Client Due Diligence, KYC and AML data requirements. The data, forms and documents are stored to the IPFS, while a hash of the data and the CID is added to the block on the AML chain. 
 4. Once Client has completed the data gathering, a request for validation is performed by the consortium.
-5. Smart contracts will be executed to validate some or all of the data. 
-6. The results will be published back to the client (and to member firms) based on the result of the smart contracts. 
-7. 
+5. Smart contracts will be executed to validate some or all of the data using external data sources e.g. Lexus Nexus, GLEIF, etc. 
+6. The results, including the Client Risk Rating and other key information is added to the AML chain and is readable by all those that have been granted read access. 
+
+## Maintenance Workflow - New PEP
+
+1. A new Politically Exposed Person (PEP) has been identified through an external mechanism that has yet to be built. This triggers a workflow to be executed against the AML chain. 
+2. A smart contract is executed to scan the Client entities in the AML chain to identify entities with a Board or Executive Officer with the same name as the new PEP. 
+3. A case is opened in the portal for a member firm to adjudicate the change. The member firm that picks up the case is awarded the transaction fee for adjuticating the change. 
+4. Once adjudicated, the member firm commits the change back to the chain. 
+5. The smart contract is then executed to recalculate the risk rating and other attributes of each entity that has the PEP as either an Executive or Board member. These results are then updated on the AML chain.
 
 ## Product Backlog Items
 
@@ -23,7 +28,7 @@ The data is stored directly on chain or on the IPFS, with a link back to the cha
 5. Smart contract to change risk rating based on PEP events.
 6. Smart contract to change risk rating based on change in client jurisdiction.
 7. Smart contract to change risk rating based on change in Beneficial Ownership. 
-8. 
+
 
 ## Questions/Issues
 
